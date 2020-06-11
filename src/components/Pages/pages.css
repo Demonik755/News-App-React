@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+}
+.card {
+    width: 40%;
+    height: 250px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+.Image {
+    width: 160px !important;
+    height: 110px;
+    align-self: center;
+}
