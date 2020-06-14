@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
-import axios from "axios";
+import  axios from "../../axios";
+import './fullPage.css';
 
+import {ButtonToggle} from "reactstrap";
+import {Link} from "react-router-dom";
 
 class FullPage extends Component {
 
@@ -8,24 +11,30 @@ class FullPage extends Component {
         title: "",
         description: "",
         image: "",
+        data: " "
     };
 
     componentDidMount() {
-        axios.get('https://newsapp-95ffc.firebaseio.com/News.json').then(response => {
+        axios.get('/news.json').then(response => {
             const data = response.data;
-            this.setState({ title: data.Title, description: data.Description, image: data.Img})
+            this.setState({data: data, title: data.Title, description: data.Description, image: data.Img})
         })
     }
     goBack() {
         this.props.history.goBack();
     }
+
     render() {
         const {  history } = this.props;
         return (
             <div>
                 <h1>{this.state.title}</h1>
 
-                <button onClick={() => history.goBack()}>back</button>
+                <div className="btn-wrapper">
+                    <ButtonToggle color="primary"  onClick={() => history.goBack()}>Back</ButtonToggle >
+                    <Link to="/AddForm"><ButtonToggle color="danger">Edit</ButtonToggle></Link>
+                </div>
+
             </div>
         );
     }

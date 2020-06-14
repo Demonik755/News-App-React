@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const instance = axios.create({
+const dataBaseURL = axios.create({
     baseURL: "https://newsapp-95ffc.firebaseio.com/",
     responseType: "json"
 });
 
-export default instance;
+export default dataBaseURL;

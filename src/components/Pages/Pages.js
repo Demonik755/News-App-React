@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {ButtonToggle, Card, CardBody, CardImg, CardText, CardTitle,} from "reactstrap";
+import { ButtonToggle, Card, CardBody, CardImg, CardText, CardTitle,} from "reactstrap";
 import './pages.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  axios from "axios";
-import {Link, NavLink} from "react-router-dom";
+import  axios from "../../axios";
+import {Link} from "react-router-dom";
+
 
 
 class Pages extends Component {
@@ -11,16 +12,19 @@ class Pages extends Component {
         title: "",
         description: "",
         image: "",
+        data: " "
     };
 
     componentDidMount() {
-        axios.get('https://newsapp-95ffc.firebaseio.com/News.json').then(response => {
+        axios.get('/news.json').then(response => {
             const data = response.data;
-            this.setState({ title: data.Title, description: data.Description, image: data.Img})
+            this.setState({data: data,  });
+            console.log(response);
         })
     }
 
     render() {
+
         return (
                 <div className="container">
                         <Card className="card" >
@@ -29,11 +33,7 @@ class Pages extends Component {
                                 <CardTitle>{this.state.title}</CardTitle>
                                 <CardText>{this.state.description}</CardText>
                             </CardBody>
-
-
-                            <Link to="/fullpage"><button>More</button></Link>
-
-
+                            <Link to="/fullpage"><ButtonToggle className="button"  color="primary">More</ButtonToggle ></Link>
                         </Card>
                 </div>
 

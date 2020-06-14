@@ -4,7 +4,7 @@ const NavBar = () => {
     return (
         <div className="navBar">
             <header className="header">
-                News App
+                NewsApp
             </header>
         </div>
     );

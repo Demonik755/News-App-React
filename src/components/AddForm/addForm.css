@@ -1,0 +1,13 @@
+.formWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+}
+.addForm {
+    width: 50% !important;
+}
+.btn-wrapper_admin {
+    display: flex;
+    justify-content: space-between;
+}
