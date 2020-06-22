@@ -10,42 +10,40 @@ class AddForm extends Component {
         image: " "
 };
     valueChange = event => {
-        this.setState({[event.target.name]: event.target.value})
+            this.setState({[event.target.name]: event.target.value})
     };
+
     addNews = event => {
-      event.preventDefault();
-      const news = {
-          news:  {
-              Title: this.state.title,
-              Description: this.state.description,
-              Image: this.state.image,
-          }
-      };
-      axios.put(".json", news).then(res=>{
-          console.log(res)
-      });
+            event.preventDefault();
+            const news = {
+                Title: this.state.title,
+                Description: this.state.description,
+                Image: this.state.image,
+            };
+            axios.post("/news.json", news).then(res=>{
+                console.log(res)
+            });
     };
     render() {
         const {  history } = this.props;
         return (
-
             <div className="formWrapper">
                 <div><h1>Admin Panel</h1></div>
-                <Form className="addForm">
+                <Form className="addForm" onSubmit={(event)=>this.addNews(event)}>
                     <FormGroup>
-                        <Label for="exampleEmail">Title</Label>
-                        <Input onChange={this.valueChange} value={this.state.title} type="text" name="title"  placeholder="Title" />
+                        <Label for="Title">Title</Label>
+                        <Input required onChange={this.valueChange} value={this.state.title} type="text" name="title"  placeholder="Title" />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="examplePassword">Description</Label>
-                        <Input onChange={this.valueChange} value={this.state.description} name="description"  placeholder="Description" />
+                        <Label for="Description">Description</Label>
+                        <Input required onChange={this.valueChange} value={this.state.description} name="description"  placeholder="Description" />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="examplePassword">Image</Label>
-                        <Input onChange={this.valueChange} value={this.state.image} name="image"  placeholder="Image" />
+                        <Label for="Image">Image</Label>
+                        <Input required onChange={this.valueChange} value={this.state.image} name="image"  placeholder="Image" />
                     </FormGroup>
                     <div className="btn-wrapper_admin">
-                        <Button onClick={(event)=>this.addNews(event)}>Submit</Button>
+                        <Button  >Submit</Button>
                         <Button onClick={() => history.goBack()} >Back</Button>
                     </div>
 

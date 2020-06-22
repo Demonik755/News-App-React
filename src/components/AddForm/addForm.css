@@ -11,3 +11,6 @@
     display: flex;
     justify-content: space-between;
 }
+.addForm input:invalid {
+    border-left-color: salmon !important;
+}
