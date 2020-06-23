@@ -22,16 +22,16 @@ class MainScreen extends Component {
         })
     }
     render() {
-        const {news} = this.state;
+        const news = this.state.news.reverse();
         const newsList = news.length ? (
             news.map(news =>{
                 return (
                     <Card className="card"  key={news.id}>
-                        <Link to={`/news/${news.id}`}>
+                        <Link className="link" to={`/news/${news.id}`}>
                                 <CardImg bottom src={news.Image} alt="Card image cap" className="Image" />
                                 <CardBody>
-                                    <CardTitle>{news.Title}</CardTitle>
-                                    <CardText>{news.Description}</CardText>
+                                    <CardTitle className="card_title">{news.Title}</CardTitle>
+                                    <CardText className="card_text">{news.Description}</CardText>
                                 </CardBody>
                     </Link>
                     </Card>

@@ -4,17 +4,31 @@
     align-items: center;
 
 }
+.link{
+    color: #000000;
+}
+a.link:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+  }
 .card {
-    width: 40%;
-    height: 250px;
-    border: 1px solid black;
+    width: 70%;
+    height: 350px;
+    margin-bottom: 30px;
+    border: 1px solid #f6f6f6 !important;
     overflow: hidden;
+    box-shadow: 1px 1px 20px 12px rgba(0,0,0,.04);
 }
 .Image {
-    width: 160px !important;
-    height: 110px;
+    width: 60% !important;
+    height: 210px;
     align-self: center;
 }
-.button {
-    padding: .375rem 10.75rem !important;
+.card_title {
+    font-size: 19px;
+    font-weight: bold;
+}
+.card_text {
+    font-size: 15px;
 }

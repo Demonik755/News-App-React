@@ -3,6 +3,7 @@ import {Button, Form, FormGroup, Input, Label} from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './addForm.css'
 import axios from '../../axios'
+import {Link} from "react-router-dom";
 class AddForm extends Component {
     state = {
         title: " ",
@@ -25,7 +26,6 @@ class AddForm extends Component {
             });
     };
     render() {
-        const {  history } = this.props;
         return (
             <div className="formWrapper">
                 <div><h1>Admin Panel</h1></div>
@@ -44,7 +44,7 @@ class AddForm extends Component {
                     </FormGroup>
                     <div className="btn-wrapper_admin">
                         <Button  >Submit</Button>
-                        <Button onClick={() => history.goBack()} >Back</Button>
+                        <Link to="/"><Button >Back</Button></Link>
                     </div>
 
                 </Form>

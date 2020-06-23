@@ -8,7 +8,7 @@ const News = props => {
     return (
       <div>
           <div className="">
-              <img width="850" height="550" src={props.image} alt="Card image cap"/>
+              <img width="100%"  src={props.image} alt="Card cap"/>
               <h1>{props.title}</h1>
           </div>
           <p style={descriptionStyle}>{props.description}</p>
