@@ -33,7 +33,6 @@ class FullPage extends Component {
         return (
             <div className="newsWrapper">
                 {this.state.data ?  (<News image={this.state.image} title={this.state.title} description={this.state.description}/>) : <span>Deleted</span>}
-                {/*<News image={this.state.image} title={this.state.title} description={this.state.description}/>*/}
                 <div className="btn-wrapper">
                     <ButtonToggle color="primary"  onClick={() => history.goBack()}>Back</ButtonToggle >
                     <Link to="/AddForm"><ButtonToggle color="danger">Edit</ButtonToggle></Link>
